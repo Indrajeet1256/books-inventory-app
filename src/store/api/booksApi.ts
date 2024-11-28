@@ -5,7 +5,9 @@ const reducerPath = "booksAPI";
 
 export const booksApi = createApi({
 	reducerPath,
-	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }),
+	baseQuery: fetchBaseQuery({
+		baseUrl: "https://json-server-test-delta.vercel.app/",
+	}),
 	tagTypes: ["Books"],
 
 	endpoints: (builder) => ({
