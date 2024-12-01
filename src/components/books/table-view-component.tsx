@@ -67,7 +67,7 @@ const TableViewComponent = ({
 								{book.link}
 							</a>
 						</Td>
-						<Td className="p-2 border-gray-200">
+						<Td className="p-2 border border-gray-200">
 							<Link
 								to={`/${book.id}`}
 								className="flex-1"
