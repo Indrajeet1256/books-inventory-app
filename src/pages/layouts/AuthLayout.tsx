@@ -1,8 +1,9 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "@clerk/clerk-react";
+
 const AuthLayout = () => {
 	const { userId, isSignedIn } = useAuth();
-	console.log({ userId, isSignedIn });
+
 	if (userId && isSignedIn) {
 		return <Navigate to="/" />;
 	}
