@@ -53,7 +53,7 @@ const FilterComponent = ({
 					Filter By Language
 				</label>
 				<select
-					className="outline-none focus:border-blue-600 border-2 border-gray-200 px-3 py-2 rounded-sm cursor-pointer transition-colors"
+					className="outline-none focus:border-blue-600 border-2 border-gray-200 px-3 py-2 rounded-md cursor-pointer transition-colors"
 					id="filter-select"
 					value={filter}
 					onChange={(e) => handleSetFilter(e.target.value)}

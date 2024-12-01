@@ -9,7 +9,7 @@ const HeaderComponent = () => {
 			<div className="container flex items-center justify-between">
 				<Link to="/" className="flex items-center gap-2">
 					<FaBook size={20} className="text-gray-600" />
-					<h1 className="font-semibold  text-gray-600 text-lg md:text-2xl uppercase tracking-tight md:block hidden">
+					<h1 className="font-semibold  text-gray-700 text-lg md:text-2xl uppercase tracking-tight md:block hidden">
 						Books Inventory
 					</h1>
 				</Link>

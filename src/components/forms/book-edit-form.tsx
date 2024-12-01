@@ -58,7 +58,7 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 		<>
 			<div className="inline-flex items-center justify-center border-b mb-5 gap-2 w-full pb-3">
 				<FaRegEdit size={26} />
-				<h1 className=" text-gray-600 font-bold md:text-3xl text-2xl  border-gray-500">
+				<h1 className=" text-gray-700 font-bold md:text-3xl text-2xl  border-gray-500">
 					Edit Book
 				</h1>
 			</div>
@@ -180,7 +180,7 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 				<div className="flex md:flex-row flex-col gap-2">
 					<Button
 						disabled={isLoading}
-						className="flex flex-1 text-sm items-center justify-center gap-2 px-4 py-3 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 "
+						className="flex flex-1 md:text-sm text-xs items-center justify-center gap-2 px-4 py-3 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 "
 						type="submit"
 					>
 						<FaPen size={16} />
@@ -192,7 +192,7 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 						className="flex-1"
 						state={{ filter: book.filter, viewType: book.viewType }}
 					>
-						<Button className="flex text-sm w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
+						<Button className="flex md:text-sm text-xs w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
 							<FaWindowClose size={16} />
 							Cancel
 						</Button>

@@ -68,7 +68,7 @@ const book = ({ book, filter, viewType }: BookProps) => {
 							className="flex-1"
 							state={{ filter, viewType }}
 						>
-							<Button className="flex w-full text-sm items-center justify-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 ">
+							<Button className="flex w-full md:text-sm text-xs items-center justify-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 ">
 								<FaEye size={12} />
 								View
 							</Button>

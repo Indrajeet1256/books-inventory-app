@@ -46,7 +46,7 @@ const BookDetailsPage = () => {
 
 	return (
 		<section>
-			<div className="inline-flex items-center justify-center border-b mb-5 gap-2 w-full pb-3 text-gray-600 ">
+			<div className="inline-flex items-center justify-center border-b mb-5 gap-2 w-full pb-3 text-gray-700 ">
 				<FaBook size={26} />
 				<h1 className=" font-bold md:text-3xl text-2xl">Book Details</h1>
 			</div>
@@ -62,7 +62,7 @@ const BookDetailsPage = () => {
 					<div className="flex md:justify-between justify-end items-center w-full flex-wrap">
 						<Link
 							to=".."
-							className="bg-slate-600 transition-colors hover:bg-slate-800 text-white px-3 py-2 rounded-sm flex items-center gap-2 text-sm"
+							className="bg-slate-600 transition-colors hover:bg-slate-800 text-white px-3 py-2 rounded-sm flex items-center gap-2 md:text-sm text-xs font-semibold"
 							state={state}
 						>
 							<IoArrowBackCircleSharp size={18} />
@@ -70,19 +70,19 @@ const BookDetailsPage = () => {
 						</Link>
 						<div className="flex flex-1 w-full justify-end gap-2 items-center p-2">
 							<Link to={`/${book.id}/edit`} state={state}>
-								<Button className="flex text-sm text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700">
+								<Button className="flex md:text-sm text-xs text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700">
 									<FaPen size={12} />
-									Edit Book
+									Edit <span className="md:block hidden">Book</span>
 								</Button>
 							</Link>
 
 							<Button
 								disabled={isLoading}
 								onClick={handleDeleteBook}
-								className="flex text-sm text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700"
+								className="flex md:text-sm text-xs text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700"
 							>
 								<FaTrashCan size={12} />
-								Delete Book
+								Delete <span className="md:block hidden">Book</span>
 							</Button>
 						</div>
 					</div>
@@ -92,7 +92,7 @@ const BookDetailsPage = () => {
 								href={book.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="flex self-end flex-shrink-0 items-center gap-x-2 text-blue-400 px-2 py-3 cursor-pointer hover:underline transition-colors hover:text-blue-500"
+								className="flex self-end flex-shrink-0 text-sm items-center gap-x-2 text-blue-400 px-2 py-3 cursor-pointer hover:underline transition-colors hover:text-blue-500"
 							>
 								<FaLink size={16} />
 								Visit Website
