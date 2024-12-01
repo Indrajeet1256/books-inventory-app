@@ -58,14 +58,18 @@ const TableViewComponent = ({
 							{book.language}
 						</Td>
 						<Td align="center" className="border border-gray-200 p-2 text-sm">
-							<a
-								href={book.link}
-								rel="noopener noreferrer"
-								target="_blank"
-								className="text-blue-500 transition-colors hover:text-blue-700 hover:underline break-all"
-							>
-								{book.link}
-							</a>
+							{book.link ? (
+								<a
+									href={book.link}
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-blue-500 transition-colors hover:text-blue-700 hover:underline break-all"
+								>
+									{book.link}
+								</a>
+							) : (
+								"-"
+							)}
 						</Td>
 						<Td className="p-2 border border-gray-200">
 							<Link

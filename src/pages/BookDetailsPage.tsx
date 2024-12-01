@@ -87,15 +87,17 @@ const BookDetailsPage = () => {
 						</div>
 					</div>
 					<div className="flex flex-col gap-2 w-full">
-						<a
-							href={book.link}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex self-end flex-shrink-0 items-center gap-x-2 text-blue-400 px-2 py-3 cursor-pointer hover:underline transition-colors hover:text-blue-500"
-						>
-							<FaLink size={16} />
-							Visit Website
-						</a>
+						{book.link && (
+							<a
+								href={book.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex self-end flex-shrink-0 items-center gap-x-2 text-blue-400 px-2 py-3 cursor-pointer hover:underline transition-colors hover:text-blue-500"
+							>
+								<FaLink size={16} />
+								Visit Website
+							</a>
+						)}
 						<List className="mt-auto">
 							<List.Item>
 								<FaCircleDot size={12} className="mr-2" />
