@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				"DM-Sans": ["DM Sans", ...fontFamily.sans],
+				InterTight: ["Inter Tight", ...fontFamily.sans],
 			},
 
 			gridTemplateColumns: {

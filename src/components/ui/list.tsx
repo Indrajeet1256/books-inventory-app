@@ -8,7 +8,7 @@ const List = ({ children, className }: ListProps) => {
 };
 List.Item = ({ children }: { children: ReactNode }) => {
 	return (
-		<li className="px-3 py-4 [&:last-child]:border-b border-t border-l border-r border-gray-200 rounded-sm flex items-center break-all">
+		<li className="relative px-3 py-4 [&:last-child]:border-b border-t border-l border-r border-gray-200 rounded-sm flex items-center break-all">
 			{children}
 		</li>
 	);

@@ -4,7 +4,7 @@ import { FaBook, FaPlusCircle } from "../data/icons";
 
 const HeaderComponent = () => {
 	return (
-		<header className="z-20 py-4 fixed top-0  bg-white border-b border-gray-100 w-full font-DM-Sans">
+		<header className="z-20 py-4 fixed top-0  bg-white border-b border-gray-100 w-full font-InterTight">
 			<div className="container flex items-center justify-between">
 				<Link to="/" className="flex items-center gap-2">
 					<FaBook size={20} className="text-gray-600" />

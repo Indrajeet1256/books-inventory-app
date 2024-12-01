@@ -26,7 +26,10 @@ const TableViewComponent = ({
 			<Thead>
 				<Tr>
 					{tableHeaders.map((tableHeader) => (
-						<Th key={tableHeader} className="border border-gray-200 p-2">
+						<Th
+							key={tableHeader}
+							className="border border-gray-200 p-2 text-base text-gray-600 font-semibold"
+						>
 							{tableHeader}
 						</Th>
 					))}
@@ -35,29 +38,29 @@ const TableViewComponent = ({
 			<Tbody>
 				{books?.map((book) => (
 					<Tr key={book.id}>
-						<Td className="border-gray-200 p-2">
+						<Td className="border-gray-200 p-2" align="center">
 							<img
 								src={book.imageLink}
 								alt={book.title}
 								className="w-16 h-16 object-cover block"
 							/>
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.title}
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.author}
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.country}
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.year}
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.language}
 						</Td>
-						<Td align="center" className="border border-gray-200 p-2 text-sm">
+						<Td align="center" className="border border-gray-200 p-2 text-base">
 							{book.link !== "\n" ? (
 								<a
 									href={book.link}

@@ -6,7 +6,7 @@ const BaseLayout = () => {
 	return (
 		<>
 			<HeaderComponent />
-			<main className="container w-full pt-20 pb-10 font-DM-Sans  h-auto">
+			<main className="container w-full pt-20 pb-10 font-InterTight h-auto">
 				<Outlet />
 				<ToastContainer position="bottom-right" />
 			</main>
