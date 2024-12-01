@@ -8,16 +8,20 @@ const FilterComponent = ({
 	handleSetFilter,
 	handleSetViewType,
 }: FilterComponentProps) => {
+	const isTableView = viewType === "table";
 	return (
 		<div className="w-full  flex justify-between items-center gap-2 border-b border-gray-300 mb-6 pb-3">
 			<div className="p-3 flex flex-col gap-1">
 				<div className="text-gray-600 text-sm md:block hidden">
-					View As {viewType === "table" ? "Table" : "Grid"}
+					View As{" "}
+					<span className="font-semibold">
+						{isTableView ? "Table" : "Grid"}
+					</span>
 				</div>
 				<div className="flex flex-row items-center border border-gray-200 w-fit relative overflow-hidden">
 					<div
 						className={`absolute w-8 h-8 bg-blue-500 -z-10 transition-transform ${
-							viewType === "table" ? "translate-x-8" : "translate-x-0"
+							isTableView ? "translate-x-8" : "translate-x-0"
 						}`}
 					/>
 					<span
@@ -26,7 +30,7 @@ const FilterComponent = ({
 						onClick={() => handleSetViewType("grid")}
 					>
 						<MdGridView
-							color={viewType === "grid" ? "white" : "black"}
+							color={!isTableView ? "white" : "black"}
 							className="transition-colors"
 						/>
 					</span>
@@ -36,7 +40,7 @@ const FilterComponent = ({
 						onClick={() => handleSetViewType("table")}
 					>
 						<MdGridOn
-							color={viewType === "table" ? "white" : "black"}
+							color={isTableView ? "white" : "black"}
 							className="transition-colors"
 						/>
 					</span>
@@ -53,7 +57,7 @@ const FilterComponent = ({
 					Filter By Language
 				</label>
 				<select
-					className="outline-none focus:border-blue-600 border-2 border-gray-200 px-3 py-2 rounded-md cursor-pointer transition-colors"
+					className="outline-none bg-white focus:border-blue-600 border-2 border-gray-200 px-3 py-2 rounded-md cursor-pointer transition-colors"
 					id="filter-select"
 					value={filter}
 					onChange={(e) => handleSetFilter(e.target.value)}

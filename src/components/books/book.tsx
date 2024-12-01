@@ -24,7 +24,7 @@ const book = ({ book, filter, viewType }: BookProps) => {
 				<div className="p-2 w-full flex flex-col ">
 					<List>
 						<List.Item>
-							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2 rounded-tr rounded-tl">
+							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2 rounded-tl">
 								Title
 							</span>
 							<div className="flex gap-2 items-center max-w-full pb-2">
@@ -35,7 +35,7 @@ const book = ({ book, filter, viewType }: BookProps) => {
 							</div>
 						</List.Item>
 						<List.Item>
-							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2 rounded-tr rounded-tl">
+							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2 rounded-tl">
 								Author
 							</span>
 							<div className="flex gap-2 items-center max-w-full pb-2">
@@ -44,7 +44,7 @@ const book = ({ book, filter, viewType }: BookProps) => {
 							</div>
 						</List.Item>
 						<List.Item>
-							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2  rounded-tr rounded-tl">
+							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2  rounded-tl">
 								Language
 							</span>
 							<div className="flex gap-2 items-center max-w-full pb-2">
@@ -53,7 +53,7 @@ const book = ({ book, filter, viewType }: BookProps) => {
 							</div>
 						</List.Item>
 						<List.Item>
-							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2 rounded-tr rounded-tl">
+							<span className="absolute bottom-0 right-0 w-fit bg-gray-500 font-semibold text-white text-xs py-1 px-2  rounded-tl">
 								Country
 							</span>
 							<div className="flex gap-2 items-center max-w-full pb-2">

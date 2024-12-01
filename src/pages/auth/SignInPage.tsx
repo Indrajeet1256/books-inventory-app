@@ -14,9 +14,9 @@ const SignInPage = () => {
 			</div>
 			<SignedOut>
 				<SignInButton>
-					<Button className="flex items-center gap-2 bg-orange-500 w-full text-white px-3 py-4 text-base transition-colors font-semibold rounded-md hover:bg-orange-600">
-						<FaGoogle size={18} className="justify-self-start" />
-						<span className="justify-self-center flex-1">Sign In</span>
+					<Button className="flex items-center justify-center gap-2 bg-violet-500 w-full text-white px-3 md:py-4 py-3 md:text-base text-sm transition-colors font-semibold rounded-md hover:bg-violet-600">
+						<FaGoogle size={18} />
+						<span>Sign In</span>
 					</Button>
 				</SignInButton>
 			</SignedOut>

@@ -68,7 +68,7 @@ const BookDetailsPage = () => {
 							<IoArrowBackCircleSharp size={18} />
 							Go Back
 						</Link>
-						<div className="flex flex-1 w-full justify-end gap-2 items-center p-2">
+						<div className="flex flex-1 w-full md:justify-end justify-between gap-2 items-center p-2">
 							<Link to={`/${book.id}/edit`} state={state}>
 								<Button className="flex md:text-sm text-xs text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700">
 									<FaPen size={12} />
@@ -92,7 +92,7 @@ const BookDetailsPage = () => {
 								href={book.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="flex self-end flex-shrink-0 text-sm items-center gap-x-2 text-blue-400 px-2 py-3 cursor-pointer hover:underline transition-colors hover:text-blue-500"
+								className="flex self-end flex-shrink-0 text-sm items-center gap-x-2 text-blue-400 px-2 py-1 cursor-pointer hover:underline transition-colors hover:text-blue-500"
 							>
 								<FaLink size={16} />
 								Visit Website
