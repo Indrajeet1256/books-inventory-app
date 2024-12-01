@@ -44,8 +44,6 @@ const BookCreateForm = () => {
 				...formValues,
 			};
 
-			console.log(book);
-
 			const response = await createBook(book);
 			if (response.data) {
 				toast.success("Book Is Created", {
@@ -213,7 +211,7 @@ const BookCreateForm = () => {
 						<FaPlusCircle size={16} />
 						Create Book
 					</Button>
-					<Link to=".." className="flex-1">
+					<Link to=".." className="flex-1" replace>
 						<Button className="flex w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
 							<FaWindowClose size={16} />
 							Cancel

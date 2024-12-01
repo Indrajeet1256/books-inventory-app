@@ -1,4 +1,4 @@
-import type { Book } from "../../types/types";
+import type { Book, SingleBook } from "../../types/types";
 import { useForm } from "react-hook-form";
 import Input from "../ui/input";
 import Button from "../ui/button";
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { FaPen, FaRegEdit, FaWindowClose } from "../../data/icons";
 
 type BookEditFormProps = {
-	book: Book;
+	book: SingleBook;
 };
 
 const ErrorMessage = ({ message }: { message: string }) => (
@@ -32,6 +32,7 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 
 	const [updateBook, { isLoading }] = useUpdateBookMutation();
 	const navigate = useNavigate();
+
 	const onSubmit = async (formValues: Partial<Book>) => {
 		try {
 			const response = await updateBook({ id: book.id, ...formValues });
@@ -40,7 +41,13 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 					autoClose: 1500,
 					position: "bottom-right",
 				});
-				setTimeout(() => navigate("/"), 500);
+				setTimeout(
+					() =>
+						navigate("/", {
+							state: { filter: book.filter, viewType: book.viewType },
+						}),
+					500
+				);
 			}
 		} catch (error: unknown) {
 			console.error(error);
@@ -179,7 +186,12 @@ const BookEditForm = ({ book }: BookEditFormProps) => {
 						<FaPen size={16} />
 						Edit Book
 					</Button>
-					<Link to=".." relative="path" className="flex-1">
+					<Link
+						to=".."
+						relative="path"
+						className="flex-1"
+						state={{ filter: book.filter, viewType: book.viewType }}
+					>
 						<Button className="flex w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
 							<FaWindowClose size={16} />
 							Cancel

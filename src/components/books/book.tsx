@@ -1,14 +1,16 @@
-import { Book } from "../types/types";
-import Button from "./ui/button";
+import type { Book, ViewType } from "../../types/types";
+import Button from "../ui/button";
 import { Link } from "react-router-dom";
-import List from "./ui/list";
-import { FaCircleDot, FaEye } from "../data/icons";
+import List from "../ui/list";
+import { FaCircleDot, FaEye } from "../../data/icons";
 
 type BookProps = {
 	book: Book;
+	filter: string;
+	viewType: ViewType;
 };
 
-const book = ({ book }: BookProps) => {
+const book = ({ book, filter, viewType }: BookProps) => {
 	return (
 		<div className="relative shadow-sm border border-gray-100 rounded-sm overflow-hidden">
 			<div className="h-full flex flex-row">
@@ -49,7 +51,11 @@ const book = ({ book }: BookProps) => {
 						</List.Item>
 					</List>
 					<div className="mt-auto flex gap-2  w-full">
-						<Link to={`/${book.id}`} className="flex-1">
+						<Link
+							to={`/${book.id}`}
+							className="flex-1"
+							state={{ filter, viewType }}
+						>
 							<Button className="flex w-full items-center justify-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 ">
 								<FaEye size={12} />
 								View

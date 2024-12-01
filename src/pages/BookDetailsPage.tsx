@@ -1,5 +1,5 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
-import { Book } from "../types/types";
+import { SingleBook } from "../types/types";
 import List from "../components/ui/list";
 import Button from "../components/ui/button";
 import { useDeleteBookMutation } from "../store/api/booksApi";
@@ -15,7 +15,7 @@ import {
 } from "../data/icons";
 
 const BookDetailsPage = () => {
-	const book = useOutletContext<Book>();
+	const book = useOutletContext<SingleBook>();
 	const navigateRef = useRef<ReturnType<typeof useNavigate>>(useNavigate());
 
 	const [deleteBook, { isLoading }] = useDeleteBookMutation();
@@ -38,6 +38,12 @@ const BookDetailsPage = () => {
 			console.error(error);
 		}
 	}, [book, deleteBook]);
+
+	const state = {
+		filter: book.filter,
+		viewType: book.viewType,
+	};
+
 	return (
 		<section>
 			<div className="inline-flex items-center justify-center border-b mb-5 gap-2 w-full pb-3 text-gray-600 ">
@@ -57,12 +63,13 @@ const BookDetailsPage = () => {
 						<Link
 							to=".."
 							className="bg-slate-600 transition-colors hover:bg-slate-800 text-white px-3 py-2 rounded-sm flex items-center gap-2"
+							state={state}
 						>
 							<IoArrowBackCircleSharp size={18} />
 							Go Back
 						</Link>
 						<div className="flex flex-1 w-full justify-end gap-2 items-center p-2">
-							<Link to={`/${book.id}/edit`}>
+							<Link to={`/${book.id}/edit`} state={state}>
 								<Button className="flex text-sm text-nowrap items-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700">
 									<FaPen size={12} />
 									Edit Book

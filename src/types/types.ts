@@ -33,3 +33,21 @@ export type ListProps = DetailedHTMLProps<
 	HTMLAttributes<HTMLUListElement>,
 	HTMLUListElement
 >;
+
+export type ViewType = "grid" | "table";
+
+export type BooksComponentProps = {
+	books: Books | undefined;
+	filter: string;
+	viewType: ViewType;
+};
+
+export type FilterComponentProps = {
+	languages: string[];
+	filter: string;
+	viewType: ViewType;
+	handleSetFilter: (filter: string) => void;
+	handleSetViewType: (viewType: ViewType) => void;
+};
+
+export type SingleBook = Book & { filter: string; viewType: string };

@@ -1,14 +1,20 @@
-import BooksComponent from "../components/books-component";
+import { useEffect, useMemo, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useGetBooksQuery } from "../store/api/booksApi";
+import type { ViewType, Book } from "../types/types";
 import ErrorComponent from "../components/ui/error";
 import { CgDanger, FaRegSadCry } from "../data/icons";
-import { useMemo, useState } from "react";
-import { Book } from "../types/types";
 import FilterComponent from "../components/filter-component";
+import { BooksGrid, BooksTable } from "../components/books";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
-	const [filter, setFilter] = useState<string>("");
+	const location = useLocation();
+	const [viewType, setViewType] = useState<ViewType>(
+		(location?.state?.viewType as ViewType) || "grid"
+	);
+
+	const [filter, setFilter] = useState<string>(location?.state?.filter || "");
 	const { data: books = [], isLoading, isError } = useGetBooksQuery();
 
 	const languages = useMemo(() => {
@@ -27,6 +33,18 @@ const HomePage = () => {
 		);
 	}, [filter, books]);
 
+	const ViewComponent = useMemo(
+		() => (viewType === "grid" ? BooksGrid : BooksTable),
+		[viewType]
+	);
+
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+		params.set("view-type", viewType);
+		params.set("filter", filter);
+		window.history.pushState({}, "", `?${params.toString()}`);
+	}, [viewType, filter]);
+
 	if (isLoading && !isError) {
 		return <Skeleton count={5} />;
 	}
@@ -44,13 +62,21 @@ const HomePage = () => {
 			{books.length > 0 ? (
 				<>
 					<FilterComponent
+						viewType={viewType}
 						languages={languages}
 						filter={filter}
 						handleSetFilter={(filter: string) => {
 							setFilter(filter);
 						}}
+						handleSetViewType={(viewType: ViewType) => {
+							setViewType(viewType);
+						}}
 					/>
-					<BooksComponent books={filteredBooksByLanguage} />
+					<ViewComponent
+						books={filteredBooksByLanguage}
+						filter={filter}
+						viewType={viewType}
+					/>
 				</>
 			) : (
 				<ErrorComponent
