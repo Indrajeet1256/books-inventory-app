@@ -87,7 +87,7 @@ const BookDetailsPage = () => {
 						</div>
 					</div>
 					<div className="flex flex-col gap-2 w-full">
-						{book.link && (
+						{book.link !== "\n" && (
 							<a
 								href={book.link}
 								target="_blank"

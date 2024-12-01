@@ -58,7 +58,7 @@ const TableViewComponent = ({
 							{book.language}
 						</Td>
 						<Td align="center" className="border border-gray-200 p-2 text-sm">
-							{book.link ? (
+							{book.link !== "\n" ? (
 								<a
 									href={book.link}
 									rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const TableViewComponent = ({
 									{book.link}
 								</a>
 							) : (
-								"-"
+								"Website Unavailable"
 							)}
 						</Td>
 						<Td className="p-2 border border-gray-200">
