@@ -62,7 +62,7 @@ const BookDetailsPage = () => {
 					<div className="flex md:justify-between justify-end items-center w-full flex-wrap">
 						<Link
 							to=".."
-							className="bg-slate-600 transition-colors hover:bg-slate-800 text-white px-3 py-2 rounded-sm flex items-center gap-2"
+							className="bg-slate-600 transition-colors hover:bg-slate-800 text-white px-3 py-2 rounded-sm flex items-center gap-2 text-sm"
 							state={state}
 						>
 							<IoArrowBackCircleSharp size={18} />

@@ -1,14 +1,21 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import BaseLayout from "./pages/layouts/BaseLayout";
-import BookLayout from "./pages/layouts/BookLayout";
-import HomePage from "./pages/HomePage";
-import BookEditPage from "./pages/BookEditPage";
-import BookDetailsPage from "./pages/BookDetailsPage";
-import BookCreatePage from "./pages/BookCreatePage";
+import { BaseLayout, BookLayout, AuthLayout } from "./pages/layouts";
+import {
+	HomePage,
+	BookEditPage,
+	BookCreatePage,
+	BookDetailsPage,
+	SignInPage,
+	ProtectedPage,
+} from "./pages";
 
 export const router = createBrowserRouter([
 	{
-		element: <BaseLayout />,
+		element: (
+			<ProtectedPage>
+				<BaseLayout />
+			</ProtectedPage>
+		),
 		children: [
 			{
 				path: "/",
@@ -31,10 +38,19 @@ export const router = createBrowserRouter([
 				path: "/create",
 				element: <BookCreatePage />,
 			},
+		],
+	},
+	{
+		element: <AuthLayout />,
+		children: [
 			{
-				path: "*",
-				element: <Navigate to="/" />,
+				path: "/sign-in",
+				element: <SignInPage />,
 			},
 		],
+	},
+	{
+		path: "*",
+		element: <Navigate to="/" />,
 	},
 ]);

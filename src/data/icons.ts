@@ -6,7 +6,14 @@ import {
 	FaRegEdit,
 	FaBook,
 } from "react-icons/fa";
-import { FaCircleDot, FaTrashCan, FaPen, FaLink, FaEye } from "react-icons/fa6";
+import {
+	FaCircleDot,
+	FaTrashCan,
+	FaPen,
+	FaLink,
+	FaEye,
+	FaGoogle,
+} from "react-icons/fa6";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { MdCreateNewFolder, MdGridOn, MdGridView } from "react-icons/md";
 
@@ -16,6 +23,7 @@ export {
 	FaCircleDot,
 	FaTrashCan,
 	FaPen,
+	FaGoogle,
 	FaLink,
 	IoArrowBackCircleSharp,
 	FaPlusCircle,

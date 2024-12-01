@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "./ui/button";
 import { FaBook, FaPlusCircle } from "../data/icons";
+import { SignedIn, UserButton } from "@clerk/clerk-react";
 
 const HeaderComponent = () => {
 	return (
@@ -12,12 +13,17 @@ const HeaderComponent = () => {
 						Books Inventory
 					</h1>
 				</Link>
-				<Link to="/create">
-					<Button className="flex items-center gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 ">
-						<FaPlusCircle size={16} />
-						Create New Book
-					</Button>
-				</Link>
+				<div className="flex md:gap-x-5 gap-x-3 items-center">
+					<SignedIn>
+						<UserButton />
+					</SignedIn>
+					<Link to="/create">
+						<Button className="flex items-center md:text-sm text-xs gap-2 px-4 py-2 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 ">
+							<FaPlusCircle size={16} />
+							Create New Book
+						</Button>
+					</Link>
+				</div>
 			</div>
 		</header>
 	);

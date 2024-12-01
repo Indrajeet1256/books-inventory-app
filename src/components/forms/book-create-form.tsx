@@ -205,14 +205,14 @@ const BookCreateForm = () => {
 				<div className="flex md:flex-row flex-col gap-2">
 					<Button
 						disabled={isLoading}
-						className="flex flex-1 items-center justify-center gap-2 px-4 py-3 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 "
+						className="flex flex-1 text-sm items-center justify-center gap-2 px-4 py-3 font-semibold bg-blue-500 rounded-sm text-white transition-colors hover:bg-blue-700 "
 						type="submit"
 					>
 						<FaPlusCircle size={16} />
 						Create Book
 					</Button>
 					<Link to=".." className="flex-1" replace>
-						<Button className="flex w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
+						<Button className="flex text-sm w-full items-center justify-center gap-2 px-4 py-3 font-semibold bg-red-500 rounded-sm text-white transition-colors hover:bg-red-700 ">
 							<FaWindowClose size={16} />
 							Cancel
 						</Button>
