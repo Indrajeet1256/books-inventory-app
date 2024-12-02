@@ -8,7 +8,7 @@ const AuthLayout = () => {
 		return <Navigate to="/" />;
 	}
 	return (
-		<section className="min-h-screen flex items-center justify-center bg-slate-200 font-InterTight">
+		<section className="min-h-screen flex items-center justify-center bg-slate-200 font-RobotoFlex">
 			<Outlet />
 		</section>
 	);
