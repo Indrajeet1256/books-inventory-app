@@ -35,14 +35,15 @@ const BookCreateForm = () => {
 	const navigate = useNavigate();
 
 	const [createBook, { isLoading }] = useCreateBookMutation();
+
 	const onSubmit = async (formValues: Partial<Book>) => {
 		try {
-			const book: Partial<Book> = {
+			const newBook: Partial<Book> = {
 				id: nanoid(),
 				...formValues,
 			};
 
-			const response = await createBook(book);
+			const response = await createBook(newBook);
 			if (response.data) {
 				toast.success("Book Is Created", {
 					autoClose: 1500,

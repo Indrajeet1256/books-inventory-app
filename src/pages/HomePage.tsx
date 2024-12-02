@@ -95,22 +95,13 @@ const HomePage = () => {
 							setViewType(type);
 						}}
 					/>
-					{paginatedBooks.length > 0 ? (
-						<>
-							<ViewComponent
-								books={paginatedBooks}
-								filter={filter}
-								viewType={viewType}
-							/>
-							<PaginationComponent handlePageClick={handlePageClick} />
-						</>
-					) : (
-						<ErrorComponent
-							Icon={<FaRegSadCry size={24} className="text-white" />}
-							message={`No Books For ${filter} Language...`}
-							className="bg-gray-600"
-						/>
-					)}
+
+					<ViewComponent
+						books={paginatedBooks}
+						filter={filter}
+						viewType={viewType}
+					/>
+					<PaginationComponent handlePageClick={handlePageClick} />
 				</>
 			) : (
 				<ErrorComponent

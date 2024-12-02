@@ -52,7 +52,7 @@ const FilterComponent = forwardRef(
 					</div>
 				</div>
 				<h1 className="text-4xl md:block hidden font-semibold tracking-tight text-gray-700">
-					Books In Your Inventory
+					{filter ? `Showing ${filter} Books` : "Books In Your Inventory"}
 				</h1>
 				<div className="flex flex-col gap-y-1">
 					<label
