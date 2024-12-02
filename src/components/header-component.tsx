@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "./ui/button";
+import { Button } from ".";
 import { FaBook, FaPlusCircle } from "../data/icons";
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 

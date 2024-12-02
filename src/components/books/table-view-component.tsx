@@ -2,7 +2,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import { BooksComponentProps } from "../../types/types";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { Link } from "react-router-dom";
-import Button from "../ui/button";
+import { Button } from "..";
 import { FaEye } from "../../data/icons";
 
 const tableHeaders: string[] = [

@@ -1,9 +1,8 @@
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { SingleBook } from "../types/types";
-import List from "../components/ui/list";
-import Button from "../components/ui/button";
+import { List, Button } from "../components";
 import { useDeleteBookMutation } from "../store/api/booksApi";
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { FaBook } from "react-icons/fa";
 import {
@@ -16,7 +15,7 @@ import {
 
 const BookDetailsPage = () => {
 	const book = useOutletContext<SingleBook>();
-	const navigateRef = useRef<ReturnType<typeof useNavigate>>(useNavigate());
+	const navigate = useNavigate();
 
 	const [deleteBook, { isLoading }] = useDeleteBookMutation();
 
@@ -28,16 +27,19 @@ const BookDetailsPage = () => {
 					toast.success(`Book ID #${book.id} Is Deleted`, {
 						autoClose: 1500,
 					});
-					setTimeout(() => {
-						navigateRef.current("/");
-					}, 500);
+					navigate("/", {
+						state: {
+							filter: book.filter,
+							viewType: book.viewType,
+						},
+					});
 				}
 			}
 			return;
 		} catch (error: unknown) {
 			console.error(error);
 		}
-	}, [book, deleteBook]);
+	}, [book, deleteBook, navigate]);
 
 	const state = {
 		filter: book.filter,

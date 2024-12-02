@@ -1,3 +1,0 @@
-Steps To Run The App -
-
-1. Start DB Server - npm run db

@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import BookEditForm from "../components/forms/book-edit-form";
+import { BookEditForm } from "../components";
 import type { SingleBook } from "../types/types";
 
 const BookEditPage = () => {

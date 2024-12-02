@@ -1,7 +1,6 @@
 import type { Book, SingleBook } from "../../types/types";
 import { useForm } from "react-hook-form";
-import Input from "../ui/input";
-import Button from "../ui/button";
+import { Input, Button } from "..";
 import { useUpdateBookMutation } from "../../store/api/booksApi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

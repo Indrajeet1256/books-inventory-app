@@ -1,5 +1,5 @@
 import type { Book, ViewType } from "../../types/types";
-import Button from "../ui/button";
+import { Button } from "..";
 import { Link } from "react-router-dom";
 import List from "../ui/list";
 import { FaCircleDot, FaEye } from "../../data/icons";

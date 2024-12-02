@@ -1,4 +1,4 @@
-import BookCreateForm from "../components/forms/book-create-form";
+import { BookCreateForm } from "../components";
 
 const BookCreatePage = () => {
 	return (

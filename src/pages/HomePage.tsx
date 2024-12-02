@@ -1,27 +1,34 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useGetBooksQuery } from "../store/api/booksApi";
 import type { ViewType, Book } from "../types/types";
-import ErrorComponent from "../components/ui/error";
 import { CgDanger, FaRegSadCry } from "../data/icons";
 import FilterComponent from "../components/filter-component";
-import { BooksGrid, BooksTable } from "../components/books";
+import {
+	BooksGrid,
+	BooksTable,
+	PaginationComponent,
+	ErrorComponent,
+} from "../components";
 import { useLocation } from "react-router-dom";
-import PaginationComponent from "../components/pagination-component";
 import usePaginate from "../hooks/usePaginate";
+import { checkBooksAvailableForLanguage } from "../utils/utils";
 
 const HomePage = () => {
 	const location = useLocation();
+	const selectRef = useRef<HTMLSelectElement>(null);
 	const [viewType, setViewType] = useState<ViewType>(
 		(location?.state?.viewType as ViewType) || "grid"
 	);
-
 	const [filter, setFilter] = useState<string>(location?.state?.filter || "");
 	const { data: books = [], isLoading, isError } = useGetBooksQuery();
 
 	const languages = useMemo(() => {
 		return books.reduce((acc: string[], curr: Book) => {
-			if (!acc.includes(curr.language)) {
+			if (
+				!acc.includes(curr.language) &&
+				checkBooksAvailableForLanguage(books, curr.language)
+			) {
 				acc.push(curr.language);
 			}
 			return acc;
@@ -47,9 +54,17 @@ const HomePage = () => {
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
 		params.set("view-type", viewType);
-		if (filter) params.set("filter", filter);
+		params.set("filter", filter ?? "");
 		window.history.pushState({}, "", `?${params.toString()}`);
 	}, [viewType, filter]);
+
+	useEffect(() => {
+		if (!selectRef.current || !filter) return;
+		if (!checkBooksAvailableForLanguage(books, filter)) {
+			selectRef.current.selectedIndex = 0;
+			setFilter("");
+		}
+	}, [filter, books]);
 
 	if (isLoading && !isError) {
 		return <Skeleton count={5} />;
@@ -68,22 +83,34 @@ const HomePage = () => {
 			{books.length > 0 ? (
 				<>
 					<FilterComponent
+						ref={selectRef}
 						viewType={viewType}
 						languages={languages}
 						filter={filter}
 						handleSetFilter={(filter: string) => {
 							setFilter(filter);
 						}}
-						handleSetViewType={(viewType: ViewType) => {
-							setViewType(viewType);
+						handleSetViewType={(type: ViewType) => {
+							if (viewType === type) return;
+							setViewType(type);
 						}}
 					/>
-					<ViewComponent
-						books={paginatedBooks}
-						filter={filter}
-						viewType={viewType}
-					/>
-					<PaginationComponent handlePageClick={handlePageClick} />
+					{paginatedBooks.length > 0 ? (
+						<>
+							<ViewComponent
+								books={paginatedBooks}
+								filter={filter}
+								viewType={viewType}
+							/>
+							<PaginationComponent handlePageClick={handlePageClick} />
+						</>
+					) : (
+						<ErrorComponent
+							Icon={<FaRegSadCry size={24} className="text-white" />}
+							message={`No Books For ${filter} Language...`}
+							className="bg-gray-600"
+						/>
+					)}
 				</>
 			) : (
 				<ErrorComponent

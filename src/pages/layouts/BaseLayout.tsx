@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import HeaderComponent from "../../components/header-component";
+import { HeaderComponent } from "../../components";
 import { ToastContainer } from "react-toastify";
 
 const BaseLayout = () => {
