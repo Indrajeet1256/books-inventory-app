@@ -7,6 +7,8 @@ import { CgDanger, FaRegSadCry } from "../data/icons";
 import FilterComponent from "../components/filter-component";
 import { BooksGrid, BooksTable } from "../components/books";
 import { useLocation } from "react-router-dom";
+import PaginationComponent from "../components/pagination-component";
+import usePaginate from "../hooks/usePaginate";
 
 const HomePage = () => {
 	const location = useLocation();
@@ -33,6 +35,10 @@ const HomePage = () => {
 		);
 	}, [filter, books]);
 
+	const { books: paginatedBooks, handlePageClick } = usePaginate({
+		books: filteredBooksByLanguage,
+	});
+
 	const ViewComponent = useMemo(
 		() => (viewType === "grid" ? BooksGrid : BooksTable),
 		[viewType]
@@ -41,7 +47,7 @@ const HomePage = () => {
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
 		params.set("view-type", viewType);
-		params.set("filter", filter);
+		if (filter) params.set("filter", filter);
 		window.history.pushState({}, "", `?${params.toString()}`);
 	}, [viewType, filter]);
 
@@ -73,10 +79,11 @@ const HomePage = () => {
 						}}
 					/>
 					<ViewComponent
-						books={filteredBooksByLanguage}
+						books={paginatedBooks}
 						filter={filter}
 						viewType={viewType}
 					/>
+					<PaginationComponent handlePageClick={handlePageClick} />
 				</>
 			) : (
 				<ErrorComponent

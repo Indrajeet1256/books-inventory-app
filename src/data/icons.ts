@@ -13,6 +13,8 @@ import {
 	FaLink,
 	FaEye,
 	FaGoogle,
+	FaAngleLeft,
+	FaAngleRight
 } from "react-icons/fa6";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { MdCreateNewFolder, MdGridOn, MdGridView } from "react-icons/md";
@@ -31,6 +33,8 @@ export {
 	MdCreateNewFolder,
 	FaRegEdit,
 	FaEye,
+	FaAngleLeft,
+	FaAngleRight,
 	FaBook,
 	MdGridOn,
 	MdGridView,

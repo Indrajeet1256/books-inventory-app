@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				InterTight: ["Inter Tight", ...fontFamily.sans],
+				RobotoFlex: ["Roboto Flex", ...fontFamily.sans],
 			},
 
 			gridTemplateColumns: {
